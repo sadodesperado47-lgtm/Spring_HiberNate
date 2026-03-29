@@ -22,10 +22,6 @@ public class User {
    @OneToOne(cascade = CascadeType.ALL)
    private Car car;
 
-   public User(Car car) {
-      this.car = car;
-   }
-
    public Car getCar() {
       return car;
    }
@@ -40,6 +36,13 @@ public class User {
       this.firstName = firstName;
       this.lastName = lastName;
       this.email = email;
+   }
+
+   public User(String firstName, String lastName, String email, Car car) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.email = email;
+      this.car = car;
    }
 
    public Long getId() {
