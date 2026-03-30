@@ -34,7 +34,7 @@ public class UserDaoImp implements UserDao {
    @Override
    public User findUsersByModelsSeries(String model, String series) {
       String hql = "select u from User u where u.car.model = :model and u.car.series = :series";
-      List<User> users = (List<User>) entityManager.createQuery(hql, User.class)
+      List<User> users = entityManager.createQuery(hql, User.class)
               .setParameter("model", model)
               .setParameter("series", series)
               .getResultList();

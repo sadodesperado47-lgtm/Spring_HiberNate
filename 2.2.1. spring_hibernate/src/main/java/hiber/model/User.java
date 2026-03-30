@@ -1,6 +1,13 @@
 package hiber.model;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
+import javax.persistence.OneToOne;
 
 @Entity
 @Table(name = "users")
@@ -10,13 +17,13 @@ public class User {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
 
-   @Column(name = "name")
+   @Column(name = "name", nullable = false, length = 50)
    private String firstName;
 
-   @Column(name = "last_name")
+   @Column(name = "last_name", nullable = false, length = 50)
    private String lastName;
 
-   @Column(name = "email")
+   @Column(name = "email", nullable = false, length = 70)
    private String email;
 
    @OneToOne(cascade = CascadeType.ALL)
